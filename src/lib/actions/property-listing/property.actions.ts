@@ -1,6 +1,6 @@
 "use server";
 
-import { CreatePropertyDto } from "@/lib/dto/property.dto";
+import { CreatePropertyDto, PropertyDto } from "@/lib/dto/property.dto";
 import { apiFetch } from "@/lib/utils";
 import { logger } from "@/lib/utils";
 import { EventType } from "@/lib/utils";
@@ -20,7 +20,7 @@ export const createProperty = async (property: CreatePropertyDto) => {
 };
 
 export const getAllProperties = async () => {
-  const data = await apiFetch("/property/get-all");
-  logger("PROPERTY", EventType.received, data);
+  const data = await apiFetch<PropertyDto[]>("/property/get-all");
+  // logger("PROPERTY", EventType.received, data);
   return data;
 };

@@ -52,6 +52,7 @@ export function logger<T = any>(
   data?: T,
   level: LogLevel = LogLevel.INFO
 ): void {
+  if (typeof window !== "undefined") return;
   const timestamp = new Date().toISOString();
   const base = `[${timestamp}] [${level}] [${service}] ${event}`;
 
@@ -66,6 +67,7 @@ export function logger<T = any>(
       console.debug(base, data ?? "");
       break;
     default:
-      console.log(base, data ?? "");
+      console.log(base);
+      console.dir(data, { depth: null, colors: true });
   }
 }

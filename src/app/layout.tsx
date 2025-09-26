@@ -4,6 +4,7 @@ import "./globals.css";
 import { AuthProvider } from "@/components/custom/Auth/auth-context";
 import { AuthDialogProvider } from "@/components/custom/Auth/auth-dialog-context";
 import { AuthDialog } from "@/components/custom/Auth/auth-dialog";
+import Provider from "@/lib/providers/react-query/react-query.provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,7 +34,7 @@ export default function RootLayout({
         <AuthProvider>
           <AuthDialogProvider>
             <AuthDialog />
-            {children}
+            <Provider>{children}</Provider>
           </AuthDialogProvider>
         </AuthProvider>
       </body>

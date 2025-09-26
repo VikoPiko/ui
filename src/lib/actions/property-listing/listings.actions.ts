@@ -1,6 +1,6 @@
 "use server";
 
-import { CreateListingDto } from "@/lib/dto/listing.dto";
+import { CreateListingDto, ListingDto } from "@/lib/dto/listing.dto";
 import { apiFetch, EventType, logger } from "@/lib/utils";
 
 export const createListing = async (listing: CreateListingDto) => {
@@ -19,10 +19,11 @@ export const createListing = async (listing: CreateListingDto) => {
 
 export const getAllListings = async () => {
   try {
-    const data = await apiFetch("/listings/all");
+    const data = await apiFetch<ListingDto[]>("/listings/all");
     logger("Listing", EventType.received, data);
     return data;
   } catch (error) {
     logger("Listing-error", EventType.error, error);
+    return [];
   }
 };
