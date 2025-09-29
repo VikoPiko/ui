@@ -9,6 +9,7 @@ import Journal from "./Journal/Journal";
 import Settings from "./Settings/Settings";
 // import { useTranslation } from "react-i18next";
 import { ListingDto } from "@/lib/dto/listing.dto";
+import { useAuth } from "../Auth/auth-context";
 
 type DashboardTest = {
   listings: ListingDto[];

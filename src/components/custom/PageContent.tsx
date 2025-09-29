@@ -6,7 +6,6 @@ import Sidebar from "./Sidebar/Sidebar";
 import Dashboard from "./Dashboard/Dashboard";
 import { useQuery } from "@tanstack/react-query";
 import { getAllListings } from "@/lib/actions/property-listing/listings.actions";
-import { CreateListingDto } from "@/lib/dto/listing.dto";
 
 const TABS = ["Home", "My Journal", "Settings", "History", "Test"] as const;
 type TabType = (typeof TABS)[number];

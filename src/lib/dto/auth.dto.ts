@@ -8,4 +8,5 @@ export interface AuthContextType {
   signUp: (user: SignUpDto) => Promise<void>;
   signOut: () => Promise<void>;
   refetchUser: () => Promise<void>;
+  getUserId: () => Promise<any>;
 }

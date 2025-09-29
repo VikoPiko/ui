@@ -6,6 +6,9 @@ export type CreatePropertyDto = {
   lng: string;
   images: string[];
   hostId: string;
+  firstName: string;
+  lastName: string;
+  email: string;
 };
 
 export type PropertyDto = {

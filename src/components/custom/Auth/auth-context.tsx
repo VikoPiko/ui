@@ -72,6 +72,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setUser(null);
   };
 
+  const getUserId = async () => {
+    const data: any = await apiFetch("/user/me", {
+      credentials: "include",
+    });
+    return data;
+  };
+
   return (
     <AuthContext.Provider
       value={{
@@ -82,6 +89,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         signUp: register,
         signOut,
         refetchUser: fetchUser,
+        getUserId: getUserId,
       }}
     >
       {children}

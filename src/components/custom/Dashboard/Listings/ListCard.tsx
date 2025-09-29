@@ -19,7 +19,7 @@ export const ListCard = (listing: ListingDto) => {
   // );
   // const isFavorite =
   //   user?.favoriteListings?.some((l) => l.id === listing.id) ?? false;
-  const isFavorite = false;
+  const [isFavorite, setIsFavorite] = useState(false);
   const router = useRouter();
 
   const [fromStr, setFromStr] = useState("");
@@ -125,12 +125,12 @@ export const ListCard = (listing: ListingDto) => {
               className="object-cover "
             />
             <div className="absolute top-3 right-3 z-10">
-              <Heart
+              {/* <Heart
                 className={cn(
                   "w-5 h-5 text-white hover:text-red-500 transition-colors cursor-pointer drop-shadow-sm",
                   isFavorite && "fill-rose-500 text-rose-500 hover:text-white"
                 )}
-              />
+              /> */}
               <Button
                 variant={"ghost"}
                 size={"icon"}
@@ -142,6 +142,7 @@ export const ListCard = (listing: ListingDto) => {
                 )}
                 onClick={(e) => {
                   // handleLike(listing.id);
+                  setIsFavorite(!isFavorite);
                   e.stopPropagation();
                 }}
               >
